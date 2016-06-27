@@ -1,0 +1,49 @@
+{% load tz %}
+
+<body>
+  <h2>
+    Eastern time is: {{time|timezone:"US/Eastern"}} {% if running %} RUNNING {% endif %}
+  </h2>
+  <ul>
+    {% for entry in status %}
+      <li>{{entry.0}}: {{entry.1}}</li>
+    {% endfor %}
+
+    <p>
+
+      <H3>To use dripper: </H3>
+      <h4>Preparation:</h4><br>
+       1 <a href="/getdata/">Load data from CSVs into get_data tables</a>
+      <br>
+      2 <a href="{% url 'dripper:flush_drippers' %}">Flush drippers</a>
+      <br>
+      3 <a href="{% url 'dripper:load' %}">Load drippers from get_data tables</a>
+      <br>
+      4 <a href="{% url 'dripper:flush_targets' %}">Flush get_data tables</a>
+      <br><br>
+      <h4>To Run:</h4>
+      <br>
+      1 <a href="{% url 'dripper:reset' %}">Reset get_data tables and start times</a>
+      <br>
+      2 <a href="{% url 'dripper:run' %}">Run dripper</a>
+      <br>
+      <br>
+      <h4>To Stop:</h4>
+      <br>
+      1 <a href="{% url 'dripper:status' %}">STOP</a>
+    </p>
+  </ul>
+</body>
+<meta http-equiv="refresh" content="2">
+
+<!-- <a href="{% url 'dripper:load' %}">load</a>
+<br>
+<a href="{% url 'dripper:flush_targets' %}">flush targets</a>
+<br>
+<a href="{% url 'dripper:run' %}">run</a>
+<br>
+<a href="{% url 'dripper:status' %}">stop</a>
+<br>
+<a href="{% url 'dripper:reset' %}">reset</a>
+<br>
+<a href="{% url 'dripper:flush_drippers' %}">flush drippers</a> -->

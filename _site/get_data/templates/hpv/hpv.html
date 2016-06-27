@@ -1,0 +1,59 @@
+{% extends 'hours_per_unit/base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/hours_per_unit/style.css">
+        <meta charset="utf-8">
+        <title>hours_per_unit Data</title>
+    </head>
+    <body>
+      {% block content %}
+      <p>
+        {{time}}
+      </p>
+      <h3>hours_per_unit</h3>
+      <table id=hours_per_unit>
+        <tr class=head>
+          <td class=head><b>Department</b></td>
+          <td class=head><b>Day</b></td>
+          <td class=head><b>Shift 1</b></td>
+          <td class=head><b>Shift 2</b></td>
+        </tr>
+      {% for department in hours_per_unit_data %}
+      <tr>
+        {% for entry in department %}
+        <td {% if forloop.first %} class="dept">{{entry}}{% else %}>
+          {{entry|floatforDEPT9}}
+          {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      </table>
+
+      <h3 id=claim_title>Finished</h3>
+      <table id=claim_day>
+        <tr class=head>
+          <td class=head><b>Day</b></td>
+        </tr>
+        <tr>
+          <td class=total>total: {{ day_total }}</td>
+        </tr>
+        <tr>
+          <td class=total>hours_per_unit: {{day_hours_per_unit|floatforDEPT9}}</td>
+        </tr>
+      </table>
+
+      <table id=claim_hour>
+        <tr class=head>
+          <td class=head><b>Current</b></td>
+        </tr>
+        <tr>
+          <td class=total>total: {{ hour_total }}</td>
+        </tr>
+      </table>
+      {% endblock %}
+    </body>
+</html>

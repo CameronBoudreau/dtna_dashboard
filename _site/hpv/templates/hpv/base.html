@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/hours_per_unit/style.css"/>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link href="../static/hours_per_unit/build/nv.d3.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- {% if user.is_authenticated %}
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <b><a class="navbar-brand" href="/hours_per_unit/">Daimler</a></b>
+        <ul class="nav navbar-nav navbar-right">
+          <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#exCollapsingNavbar">
+          &#9776;
+          </button>
+          <ul class="dropdown-menu">
+            <li><center><b>Signed in as {{user.username}} </b></center></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+    {% endif %} -->
+
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="../static/hours_per_unit/build/nv.d3.js"></script>
+    <!-- <meta http-equiv="refresh" content="5"> -->
+  </body>
+
+</html>

@@ -1,0 +1,1 @@
+web: gunicorn dtna_dashboard.wsgi --log-file -

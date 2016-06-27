@@ -1,0 +1,100 @@
+{% extends 'hours_per_unit/base.html' %}
+{% load staticfiles %}
+{% load tz %}
+
+<head>
+    <meta charset="utf-8">
+    <title>hours_per_unit Data</title>
+</head>
+
+{% block content %}
+{% if user.is_authenticated %}
+<nav class="navbar navbar-default">
+  <div class="col-xs-2">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/hours_per_unit"><h4 class="brand"><b>MTH hours_per_unit</b></h4></a>
+    </div>
+  </div>
+  <div class="col-xs-9"></div>
+  <div class="col-xs-1">
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#exCollapsingNavbar">
+    &#9776;
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><center><b> {{user.username}} </b></center></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="/hours_per_unit">Home</a></li>
+      <li><a href="/admin/">Admin</a></li>
+      <li role="separator" class="divider"></li>
+      {% for name, dept in depts.items %}
+        <li><a href="/detail/{{ name }}">{{ name }}</a></li>
+      {% endfor %}
+      <li role="separator" class="divider"></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+
+<div class="container">
+  <p>
+    {{dripper_time}}
+  </p>
+  <div class="row">
+    <div class="col-sm-12 col-md-5">
+      <h3>hours_per_unit</h3>
+      <table id=hours_per_unit>
+        <tr class=head>
+          <th class=head>Department</th>
+          {% if shift_3 %}
+          <th class=head>Shift 3</th>
+          {% endif %}
+          <th class=head>Shift 1</th>
+          <th class=head>Shift 2</th>
+          <th class=head>Day</th>
+        </tr>
+
+        {% for name, dept in depts.items %}
+          <tr>
+            <td class="dept"><a href="/detail/{{ name }}" >{{ name }}</a></td>
+            {% if shift_3 %}
+            <td>{{ dept.s3_hours_per_unit }}</td>
+            {% endif %}
+            <td>{{ dept.s1_hours_per_unit }}</td>
+            <td>{{ dept.s2_hours_per_unit }}</td>
+            <td>{{ dept.d_hours_per_unit }}</td>
+          </tr>
+        {% endfor %}
+
+        <tfoot>
+          <td class="claims"><b>CLAIMS</b></td>
+          {% if shift_3 %}
+          <td>{{ s3_claims }}</td>
+          {% endif %}
+          <td>{{ s1_claims }}</td>
+          <td>{{ s2_claims }}</td>
+          <td>{{ claims_d }}</td>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="col-sm-12 col-md-7">
+      <h3>Today's hours_per_unit</h3>
+      <div id='linegraph'>
+        <svg style='height:300px'> </svg>
+      </div>
+      <script src='{% static "hours_per_unit/graph.js" %}' type='text/javascript'> </script>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <center><br>
+      <h3> Total Count: {{ claims_d }} |  Total hours_per_unit: {{ depts.PLANT.d_hours_per_unit|floatforDEPT9 }} <br><br> Most recent update: {{ current_time|timezone:'US/Eastern' }} </h3>
+      </center>
+    </div>
+  </div>
+
+</div>
+<meta http-equiv="refresh" content="60">
+{% endblock %}

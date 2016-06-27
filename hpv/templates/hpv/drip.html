@@ -1,0 +1,24 @@
+{% extends 'hours_per_unit/base.html' %}
+{% load staticfiles %}
+<head>
+  <title>Drip Data</title>
+</head>
+{% block content %}
+<div class=container>
+  <form class="" action="" method="get">
+    <label>Select the number of seconds between data drips<br>(5 seconds minimum and javascript must be enabled):</label>
+    <br>
+    <input id="dripRate" type="text" name="dripRate" value="" required="True">
+    <br><br>
+    <label>Click to start building trucks:</label>
+    <br><br>
+    <input id="startDrip" type="button" name="startDrip" value="Start Drip">
+    <button id='stopDrip' type="button" name="stopDrip">Stop Drip</button>
+  </form>
+
+  <br><br>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="{% static "hours_per_unit/drip.js" %}"></script>
+{% endblock %}
+</div>

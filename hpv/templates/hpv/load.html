@@ -1,0 +1,40 @@
+{% extends 'hours_per_unit/base.html' %}
+{% load staticfiles %}
+
+<head>
+  <title>Load Data</title>
+</head>
+
+{% block content %}
+<div class="container">
+  <form class="" action="" method="get">
+      <label>Click to generate 10 days worth of data for 2 shifts and 500 employees per shift:</label>
+      <input type="submit" name="grabAttendance" value="Get Data">
+  </form>
+
+  {% if text %}
+      {{ text }}
+  {% endif %}
+  <br>
+
+  <form class="" action="" method="get">
+      <label>Click to generate 10 days worth of data for complete trucks:</label>
+      <input type="submit" name="grabComplete" value="Get Data">
+  </form>
+
+  {% if text2 %}
+      {{ text2 }}
+  {% endif %}
+  <br>
+
+  <form class="" action="" method="get">
+      <label>Click to generate 10 days worth of data for the api:</label>
+      <input type="submit" name="grabAPI" value="Get Data">
+  </form>
+
+  {% if text3 %}
+      {{ text3 }}
+  {% endif %}
+
+</div>
+{% endblock %}

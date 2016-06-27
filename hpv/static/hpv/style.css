@@ -1,0 +1,212 @@
+
+/*Nav bar*/
+.bg-faded {
+    background-color: #f7f7f9;
+}
+.navbar{
+    margin-bottom: 8px;
+}
+.navbar-toggler {
+    padding: .5rem .75rem;
+    font-size: 3.25rem;
+    line-height: 1;
+    background: 0 0;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+/*Login Form*/
+.form-control {
+    border-radius: 10px;
+}
+
+.login-form, .wrapper {
+  text-align: center;
+}
+
+/*Container/Body*/
+.bodycontainer {
+  margin: 100px 20px 0 20px;
+}
+
+body {
+  background: #F7F7F7;
+}
+
+.container {
+  margin-top: 3px;
+}
+
+.row {
+  margin-top: 0px;
+}
+
+#line, #heatmap, #summary, #week_on_week {
+  /*border: solid darkgrey 1px;*/
+  background: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#row top {
+  background:white;
+}
+
+#heatmap {
+  margin-bottom: 20px;
+}
+
+h4 {
+  /*border: 1px solid #ccc;*/
+  background-color: #457B9D;
+  color: white;
+  padding: 5px 0 5px;
+}
+
+h4.brand {
+  background-color: #457B9D;
+  color: white;
+  padding: 5px 5px 5px 5px;
+  font-size: 14px;
+}
+
+/*Text*/
+
+a {
+  color: white;
+}
+
+p {
+  margin: 0 50px;
+}
+
+/*Graph*/
+.nvd3 g.nv-groups path.nv-line {
+  stroke-width: 5px;
+}
+
+.nvd3 text {
+    font: 500;
+}
+
+/*Table*/
+
+td, th {
+  font-size: 18px;
+  width: 4rem;
+  height: 2rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+td {
+  width: 120px;
+  font-size: 18px;
+}
+
+td.dept:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.head {
+  height: 50px;
+  text-align: center;
+  vertical-align: center;
+  color: white;
+  background: #457B9D;
+  border-color: white;
+}
+
+.total {
+  height: 50px;
+  width: 50px;
+}
+
+.dept {
+  font-weight: bold;
+  background: #457B9D;
+  border-color: white;
+  color: white;
+}
+
+/*Heat Map*/
+rect.bordered {
+  stroke: #fff;
+  stroke-width:2px;
+}
+
+text.mono {
+  font-size: 10pt;
+  fill: #aaa;
+  font-weight: 500;
+}
+
+text.mono.scale {
+  fill: #000;
+}
+
+text.axis-workweek {
+  fill: #000;
+}
+
+text.axis-shift1 {
+  fill: #000;
+}
+
+text.axis-shift2 {
+  fill: #0000cd;
+}
+
+.btn-default {
+  letter-spacing: 1px;
+  margin: 5px;
+  border: solid 1px #457B9D;
+}
+
+.btn.selected {
+  background: #457B9D;
+  border: solid 2px #007299;
+  color: white;
+}
+
+/*Detail line graph*/
+#line path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+#line .axis path,
+#line .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.dashed {
+    stroke-width: 1;
+    stroke-dasharray: 5,5;
+}
+
+.legend rect {
+  fill:white;
+  opacity:0.8;
+  background:white;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+
+.grid path {
+      stroke-width: 0;
+}
+
+.legend {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+}

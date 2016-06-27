@@ -1,0 +1,7 @@
+clock_in_out_csv = 'data/exp_punch.csv'
+direct_run_csv = 'data/Direct_Run.csv'
+item_shortages_csv = 'data/ITMSHORT(shortages).csv'
+crys_csv = 'data/DEPT8VHITDS(crys).csv'
+shopcalls_csv = 'data/Shopcalls.csv'
+plant_activty_csv = 'data/OBF_MED_SV_PLANT_ACTY_DTL(Claims).csv'
+departments_csv = 'data/department_list.csv'
